@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *veiw_BG_NO;
 @property (weak, nonatomic) IBOutlet UIView *viewClick_YES;
 @property (weak, nonatomic) IBOutlet UIView *viewClick_NO;
+@property (weak, nonatomic) IBOutlet UIView *userFieldView;
 
 - (IBAction)actionYES:(id)sender;
 - (IBAction)actionNO:(id)sender;
@@ -70,9 +71,13 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField; {
     
     if (textField == self.textField_AboutUser) {
-        [Animations moveTextField_UpDown:self.textField_AboutUser Points:-90 TextColor:[UIColor blackColor]];
-        [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:-90 TextColor:[UIColor whiteColor]];
+//        [Animations moveTextField_UpDown:self.textField_AboutUser Points:-90 TextColor:[UIColor blackColor]];
+//        [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:-90 TextColor:[UIColor whiteColor]];
+//        
+        [Animations moveUserFieldView_UpDown:self.userFieldView Points:-90];
+
         
+    
         return YES;
     
            }
@@ -98,15 +103,21 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
     if (textField == self.textField_AboutUser /* && self.textField_AboutUser.text.length > 0*/) {
         [self.textField_AboutUser resignFirstResponder];
      
-        [Animations moveTextField_UpDown:self.textField_AboutUser Points:90 TextColor:[UIColor blackColor]];
-         [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:90 TextColor:[UIColor whiteColor]];
+//        [Animations moveTextField_UpDown:self.textField_AboutUser Points:90 TextColor:[UIColor blackColor]];
+//         [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:90 TextColor:[UIColor whiteColor]];
+
+    [Animations moveUserFieldView_UpDown:self.userFieldView Points:90];
+       
         return YES;
+
+    
     }
+    
+    
     
     return NO;
 }
     
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -184,6 +195,8 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
     }
 }
 
+// перемещение лайблов при вводе текста ===============
+
 - (IBAction)textField_lastName_Changing:(id)sender {
     
     if (self.textField_LastName.text.length == 0) {
@@ -201,8 +214,8 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
             isLastNameChanging = YES;
         }
     }
-
 }
+// перемещение лайблов при вводе текста ===============
 
 - (IBAction)textField_aboutUser_Changing:(id)sender {
     
@@ -211,20 +224,16 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
         if (isAboutUserChanging) {
             [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:25 TextColor:[UIColor blackColor]];
             isAboutUserChanging = NO;
-    
         }
-        
-       
     }
     else {
         if (!isAboutUserChanging) {
             [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:-20 TextColor:[UIColor whiteColor]];
         
             isAboutUserChanging = YES;
-//        [Animations moveTextField_UpDown:self.textField_AboutUser Points:-55 TextColor:[UIColor blackColor]];
+
         }
     }
-    
 }
 
 - (IBAction)textField_aboutUser_DidBegin:(id)sender {
@@ -232,7 +241,10 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
     if (isAboutUserTouching) {
         
         isAboutUserTouching = YES;
-        [Animations moveTextField_UpDown:self.textField_AboutUser Points:-20 TextColor:[UIColor blackColor]];
+//        [Animations moveTextField_UpDown:self.textField_AboutUser Points:-20 TextColor:[UIColor blackColor]];
+        [Animations moveUserFieldView_UpDown:self.userFieldView Points:-90];
+
+        
     }
 }
 

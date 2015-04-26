@@ -85,7 +85,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view alpha="0.89999999999999991" contentMode="scaleToFill" id="agb-zF-Rb7">
+                            <view alpha="0.89999999999999991" contentMode="scaleToFill" restorationIdentifier="userFieldView" id="agb-zF-Rb7">
                                 <rect key="frame" x="22" y="190" width="288" height="247"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -160,6 +160,7 @@
                         <outlet property="textField_AboutUser" destination="MOz-tb-uOO" id="Tcd-Yt-sFM"/>
                         <outlet property="textField_FristName" destination="YSn-Ro-l75" id="WGP-mp-Wej"/>
                         <outlet property="textField_LastName" destination="jca-oY-9dW" id="kkB-nP-dR4"/>
+                        <outlet property="userFieldView" destination="agb-zF-Rb7" id="FhA-Ls-544"/>
                         <outlet property="veiw_BG_NO" destination="D0C-U8-SpW" id="03X-RD-ik9"/>
                         <outlet property="viewClick_NO" destination="1bT-oJ-byn" id="1kJ-Iw-MmH"/>
                         <outlet property="viewClick_YES" destination="Dnw-yM-acY" id="gWP-yC-YZG"/>

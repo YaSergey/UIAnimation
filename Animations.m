@@ -55,16 +55,14 @@
     
 }
 
-// сдвиг изменение плейсхолдера
+// сдвиг изменение плейсхолдера анимация сдвиг вверх с пружинным эффектом (как в скайпе)===
+
 + (void) movePlaceHolder_UpDown: (UILabel *) label Points: (int)points TextColor: (UIColor *) textColor {
     
     CGRect newFrame = [label frame];
     newFrame.origin.y = label.frame.origin.y + points;
     
-    
-    // анимация сдвиг вверх с пружинным эффектом (как в скайпе)============
-    
-    [UIView animateWithDuration:0.4 delay:0.0 usingSpringWithDamping:0.2 initialSpringVelocity:0.7 options:0 animations:^{
+    [UIView animateWithDuration:0.6 delay:0.0 usingSpringWithDamping:0.2 initialSpringVelocity:0.7 options:0 animations:^{
         
             label.frame = newFrame;
             int64_t delay = 5;
@@ -115,6 +113,7 @@
 
 
 /// ============== сдвиг  текстФилда вверх при измении =================
+// анимация сдвиг вверх с пружинным эффектом (как в скайпе)============
 
 + (void) moveTextField_UpDown: (UITextField *) textField Points: (int)points TextColor: (UIColor *) textColor {
     
@@ -122,12 +121,11 @@
     newTextFieldFrame.origin.y = textField.frame.origin.y + points;
     
     
-    // анимация сдвиг вверх с пружинным эффектом (как в скайпе)============
     
-    [UIView animateWithDuration:1.4 delay:0.0 usingSpringWithDamping:0.2 initialSpringVelocity:0.7 options:0 animations:^{
+    [UIView animateWithDuration:0.6 delay:0.0 usingSpringWithDamping:0.2 initialSpringVelocity:0.7 options:0 animations:^{
         
         textField.frame = newTextFieldFrame;
-        int64_t delay = 3;
+        int64_t delay = 5;
         
         dispatch_time_t time = dispatch_time (DISPATCH_TIME_NOW, delay * NSEC_PER_MSEC);
         dispatch_after(time, dispatch_get_main_queue(), ^{
@@ -148,6 +146,44 @@
         
     } completion:^(BOOL finished) {
     }];
+}
+
+////// метод сдвига view элемента с текст филдами
+
++(void) moveUserFieldView_UpDown: (UIView *) userFieldView Points: (int) points {
+    
+    
+    CGRect userFieldViewFrame = [userFieldView frame];
+    userFieldViewFrame.origin.y = userFieldView.frame.origin.y + points;
+    
+    
+    
+    [UIView animateWithDuration:0.6 delay:0.0 usingSpringWithDamping:0.2 initialSpringVelocity:0.7 options:0 animations:^{
+        
+        userFieldView.frame = userFieldViewFrame;
+        int64_t delay = 5;
+        
+        dispatch_time_t time = dispatch_time (DISPATCH_TIME_NOW, delay * NSEC_PER_MSEC);
+        dispatch_after(time, dispatch_get_main_queue(), ^{
+            
+            CATransition * animation = [CATransition animation];
+            animation.type = kCATransitionFade;
+            animation.duration = 0.2;
+            
+            [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+            
+            [animation setFillMode:kCAFillModeBoth];
+            
+            
+            [userFieldView.layer addAnimation:animation forKey:@"Fade"];
+//            userFieldView.textColor = textColor;
+            
+        });
+        
+    } completion:^(BOOL finished) {
+    }];
+
+
 }
 
 @end

@@ -23,6 +23,9 @@
 
 + (void) moveTextField_UpDown: (UITextField *) textField Points: (int)points TextColor: (UIColor *) textColor;
 
++(void) moveUserFieldView_UpDown: (UIView *) userFieldView Points: (int) points;
+
+
 
 
 @end
