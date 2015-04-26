@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+
 @interface DetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *textField_First;
 @property (weak, nonatomic) IBOutlet UILabel *labelFirst;
@@ -21,5 +24,10 @@
 - (IBAction)textField_Second_Changing:(id)sender;
 - (IBAction)textField_Third_Changing:(id)sender;
 - (IBAction)textField_Fourth_Changing:(id)sender;
+
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField;
+
+-(void)textFieldDidEndEditing:(UITextField *)textField;
 
 @end

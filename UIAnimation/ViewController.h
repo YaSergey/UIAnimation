@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ViewController : UIViewController <UITextFieldDelegate> {
+@interface ViewController : UIViewController <UITextFieldDelegate, UIScrollViewDelegate> {
 
     BOOL isYES;
     BOOL isColorChanged;
@@ -17,6 +17,7 @@
     BOOL isFitstNameChanging;
     BOOL isLastNameChanging;
     BOOL isAboutUserChanging;
+    BOOL isAboutUserTouching;
     
 }
 
@@ -26,10 +27,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField_LastName;
 @property (weak, nonatomic) IBOutlet UILabel *labelPlaceHolder_LastName;
 @property (weak, nonatomic) IBOutlet UILabel *label_Glow;
-@property (weak, nonatomic) IBOutlet UITextField *textFieldAboutUser;
+@property (weak, nonatomic) IBOutlet UITextField *textField_AboutUser;
 @property (weak, nonatomic) IBOutlet UILabel *labelAboutUser;
 
-//- (IBAction)textFieldChanged:(id)sender;
+
 
 
 

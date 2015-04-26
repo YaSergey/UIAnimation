@@ -21,6 +21,8 @@
 - (IBAction)textField_fristName_Changing:(id)sender;
 - (IBAction)textField_lastName_Changing:(id)sender;
 - (IBAction)textField_aboutUser_Changing:(id)sender;
+- (IBAction)textField_aboutUser_DidBegin:(id)sender;
+
 
 
 
@@ -37,7 +39,7 @@
     [self setView];
   
 }
-
+// ==========================================================
 - (void) setView { // графические свойства объектов цвет фона, толщина линий, скругление
     
     self.textField_FristName.layer.borderColor = [UIColor colorWithWhite:1.0 alpha:0.1].CGColor;
@@ -64,25 +66,40 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
 
 }
 
+// ============ Метод сдвигает текстфилд когда есть касание текст филда======
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField; {
+    
+    if (textField == self.textField_AboutUser) {
+        [Animations moveTextField_UpDown:self.textField_AboutUser Points:-90 TextColor:[UIColor blackColor]];
+        [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:-90 TextColor:[UIColor whiteColor]];
+        
+        return YES;
+    
+           }
+    return YES;
+}
+
+//////////////////=============================================
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField; {
 
-//    [self.textField_FristName resignFirstResponder];
-//    return YES;
-//    с self.textField_FristName;
     
-    if (textField == self.textField_FristName && self.textField_FristName.text.length > 0) {
+    if (textField == self.textField_FristName /*&& self.textField_FristName.text.length > 0*/) {
         [self.textField_FristName resignFirstResponder];
         return YES;
     }
     
     
-    if (textField == self.textField_LastName && self.textField_LastName.text.length > 0) {
+    if (textField == self.textField_LastName /*&& self.textField_LastName.text.length > 0*/) {
         [self.textField_LastName resignFirstResponder];
         return YES;
     }
     
-    if (textField == self.textFieldAboutUser && self.textFieldAboutUser.text.length > 0) {
-        [self.textFieldAboutUser resignFirstResponder];
+    if (textField == self.textField_AboutUser /* && self.textField_AboutUser.text.length > 0*/) {
+        [self.textField_AboutUser resignFirstResponder];
+     
+        [Animations moveTextField_UpDown:self.textField_AboutUser Points:90 TextColor:[UIColor blackColor]];
+         [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:90 TextColor:[UIColor whiteColor]];
         return YES;
     }
     
@@ -95,6 +112,8 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 - (IBAction)actionYES:(id)sender {
     
@@ -187,21 +206,36 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
 
 - (IBAction)textField_aboutUser_Changing:(id)sender {
     
-    if (self.textFieldAboutUser.text.length == 0) {
+    if (self.textField_AboutUser.text.length == 0) {
         
         if (isAboutUserChanging) {
             [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:25 TextColor:[UIColor blackColor]];
-            
             isAboutUserChanging = NO;
+    
         }
+        
+       
     }
     else {
         if (!isAboutUserChanging) {
-            [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:-25 TextColor:[UIColor whiteColor]];
-            
+            [Animations movePlaceHolder_UpDown:self.labelAboutUser Points:-20 TextColor:[UIColor whiteColor]];
+        
             isAboutUserChanging = YES;
+//        [Animations moveTextField_UpDown:self.textField_AboutUser Points:-55 TextColor:[UIColor blackColor]];
         }
     }
+    
 }
+
+- (IBAction)textField_aboutUser_DidBegin:(id)sender {
+    
+    if (isAboutUserTouching) {
+        
+        isAboutUserTouching = YES;
+        [Animations moveTextField_UpDown:self.textField_AboutUser Points:-20 TextColor:[UIColor blackColor]];
+    }
+}
+
+
 
 @end

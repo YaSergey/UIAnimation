@@ -21,4 +21,8 @@
 
 + (void) setGlowEffect: (UILabel *) label Alpha: (int) alpha;
 
++ (void) moveTextField_UpDown: (UITextField *) textField Points: (int)points TextColor: (UIColor *) textColor;
+
+
+
 @end
