@@ -64,13 +64,32 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
 
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField; {
 
-    [self.textField_FristName resignFirstResponder];
-    return YES;
+//    [self.textField_FristName resignFirstResponder];
+//    return YES;
+//    с self.textField_FristName;
+    
+    if (textField == self.textField_FristName && self.textField_FristName.text.length > 0) {
+        [self.textField_FristName resignFirstResponder];
+        return YES;
+    }
     
     
+    if (textField == self.textField_LastName && self.textField_LastName.text.length > 0) {
+        [self.textField_LastName resignFirstResponder];
+        return YES;
+    }
+    
+    if (textField == self.textFieldAboutUser && self.textFieldAboutUser.text.length > 0) {
+        [self.textFieldAboutUser resignFirstResponder];
+        return YES;
+    }
+    
+    return NO;
 }
+    
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -163,8 +182,7 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
             isLastNameChanging = YES;
         }
     }
-    
-    
+
 }
 
 - (IBAction)textField_aboutUser_Changing:(id)sender {
@@ -184,7 +202,6 @@ self.view_BG_YES.layer.cornerRadius = 5.0;
             isAboutUserChanging = YES;
         }
     }
-    
 }
 
 @end

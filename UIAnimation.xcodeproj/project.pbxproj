@@ -19,6 +19,7 @@
 		7C0B29FF1AEAF8CC008AD9BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0B29FE1AEAF8CC008AD9BF /* Foundation.framework */; };
 		7C0B2A031AEB0AC8008AD9BF /* Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B2A021AEB0AC8008AD9BF /* Animations.m */; };
 		7C0B2A051AEB1454008AD9BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0B2A041AEB1454008AD9BF /* QuartzCore.framework */; };
+		7C0B2A091AEC6850008AD9BF /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B2A081AEC6850008AD9BF /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		7C0B2A011AEB0AC8008AD9BF /* Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animations.h; sourceTree = "<group>"; };
 		7C0B2A021AEB0AC8008AD9BF /* Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animations.m; sourceTree = "<group>"; };
 		7C0B2A041AEB1454008AD9BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7C0B2A071AEC6850008AD9BF /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		7C0B2A081AEC6850008AD9BF /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				7C0B29DB1AEAEC3F008AD9BF /* ViewController.h */,
 				7C0B29DC1AEAEC3F008AD9BF /* ViewController.m */,
 				7C0B29DE1AEAEC3F008AD9BF /* Main.storyboard */,
+				7C0B2A071AEC6850008AD9BF /* DetailViewController.h */,
+				7C0B2A081AEC6850008AD9BF /* DetailViewController.m */,
 				7C0B29E11AEAEC3F008AD9BF /* Images.xcassets */,
 				7C0B29E31AEAEC3F008AD9BF /* LaunchScreen.xib */,
 				7C0B29D41AEAEC3F008AD9BF /* Supporting Files */,
@@ -256,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C0B2A091AEC6850008AD9BF /* DetailViewController.m in Sources */,
 				7C0B29DD1AEAEC3F008AD9BF /* ViewController.m in Sources */,
 				7C0B29DA1AEAEC3F008AD9BF /* AppDelegate.m in Sources */,
 				7C0B2A031AEB0AC8008AD9BF /* Animations.m in Sources */,
